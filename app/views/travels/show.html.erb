@@ -13,5 +13,16 @@
   <%= @travel.end_date %>
 </p>
 
+<p>
+  <strong>Locations:</strong>
+  <ul>
+    <% @travel.locations.each do |location| %>
+      <li><%= link_to location.name, location_path(location) %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'New Location', new_location_path(travel: @travel) %>
+
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', travels_path %>
