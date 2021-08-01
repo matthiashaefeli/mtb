@@ -12,7 +12,6 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @travel = Travel.find(params[:travel])
     @location = Location.new
   end
 
@@ -26,10 +25,10 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: "Location was successfully created." }
+        format.html { redirect_to @location.travel, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to @location.travel, alert: @location.errors.full_messages }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
