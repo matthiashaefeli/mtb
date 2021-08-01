@@ -1,9 +1,10 @@
 class TravelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_travel, only: %i[ show edit update destroy ]
 
   # GET /travels or /travels.json
   def index
-    @travels = Travel.all
+    @travels = Travel.where(user_id: current_user)
   end
 
   # GET /travels/1 or /travels/1.json
@@ -22,6 +23,7 @@ class TravelsController < ApplicationController
   # POST /travels or /travels.json
   def create
     @travel = Travel.new(travel_params)
+    @travel.user = current_user
 
     respond_to do |format|
       if @travel.save
