@@ -13,5 +13,13 @@
   <%= @location.travel_id %>
 </p>
 
+<% @location.comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+  </p>
+<% end %>
+
+<%= render "comments/form", { commenteable_id: @location.id, commenteable_type: @location.class, comment: Comment.new } %>
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

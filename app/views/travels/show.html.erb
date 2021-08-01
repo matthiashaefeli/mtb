@@ -13,6 +13,12 @@
   <%= @travel.end_date %>
 </p>
 
+<% @travel.comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+  </p>
+<% end %>
+
 <p>
   <strong>Locations:</strong>
   <ul>
@@ -22,7 +28,9 @@
   </ul>
 </p>
 
-<%= link_to 'New Location', new_location_path(travel: @travel) %>
+
+<%= render 'locations/form', { location: Location.new } %>
+<%= render "comments/form", { commenteable_id: @travel.id, commenteable_type: @travel.class, comment: Comment.new } %>
 
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', travels_path %>
