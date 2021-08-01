@@ -18,6 +18,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @travel = @location.travel
   end
 
   # POST /locations or /locations.json
@@ -29,7 +30,7 @@ class LocationsController < ApplicationController
         format.html { redirect_to @location.travel, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
-        format.html { redirect_to @location.travel, alert: @location.errors.full_messages }
+        format.html { redirect_to @location.travel, alert: @location.errors.full_messages.join{','} }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
