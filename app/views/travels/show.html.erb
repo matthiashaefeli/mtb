@@ -28,9 +28,10 @@
   </ul>
 </p>
 
-
-<%= render 'locations/form', { location: Location.new } %>
-<%= render "comments/form", { commenteable_id: @travel.id, commenteable_type: @travel.class, comment: Comment.new } %>
+<div><a id='add_new_location' class='clickable_text'>Add new Location</a></div>
+<div class='location_form'><%= render 'locations/form', { location: Location.new } %></div>
+<div><a id='add_new_comment' class='clickable_text'>Add new Comment</a></div>
+<div class='comment_form'><%= render "comments/form", { commenteable_id: @travel.id, commenteable_type: @travel.class, comment: Comment.new } %></div>
 
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', travels_path %>
