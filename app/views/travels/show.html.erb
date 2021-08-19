@@ -35,3 +35,15 @@
 
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', travels_path %>
+
+<script>
+  $('.location_form, .comment_form').hide();
+
+  $('#add_new_location').click(function() {
+    $('.location_form').toggle();
+  });
+
+  $('#add_new_comment').click(function() {
+    $('.comment_form').toggle();
+  });
+</script>
