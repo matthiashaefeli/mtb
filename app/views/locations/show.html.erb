@@ -16,6 +16,7 @@
 <% @location.comments.each do |comment| %>
   <p>
     <%= comment.content %>
+    <%= link_to 'Delete Comment', comment_path(comment), method: :delete %>
   </p>
 <% end %>
 
