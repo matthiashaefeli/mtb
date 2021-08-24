@@ -20,7 +20,16 @@
   </p>
 <% end %>
 
-<%= render "comments/form", { commenteable_id: @location.id, commenteable_type: @location.class, comment: Comment.new } %>
+<div><a id='add_new_comment' class='clickable_text'>Add new Comment</a></div>
+<div class='comment_form'><%= render "comments/form", { commenteable_id: @location.id, commenteable_type: @location.class, comment: Comment.new } %></div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', travel_path(@location.travel) %>
+
+<script>
+  $('.location_form, .comment_form').hide();
+
+  $('#add_new_comment').click(function() {
+    $('.comment_form').toggle();
+  });
+</script>
