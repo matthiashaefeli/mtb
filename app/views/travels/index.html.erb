@@ -1,5 +1,6 @@
 <h1>My Journeys</h1>
-
+<%= link_to 'New Journey', new_travel_path %>
+<br>
 <table>
   <thead>
     <tr>
@@ -23,7 +24,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+<%= render "map/index", var: @var%>
 
-<%= link_to 'New Journey', new_travel_path %>
