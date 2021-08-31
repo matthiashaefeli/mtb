@@ -5,6 +5,7 @@ class TravelsController < ApplicationController
   # GET /travels or /travels.json
   def index
     @travels = Travel.where(user_id: current_user)
+    @key = Rails.application.credentials.dig(:google_api, :key)
   end
 
   # GET /travels/1 or /travels/1.json
