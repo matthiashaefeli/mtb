@@ -9,8 +9,8 @@
 </p>
 
 <p>
-  <strong>Travel:</strong>
-  <%= @location.travel_id %>
+  <strong>Trip:</strong>
+  <%= @location.trip_id %>
 </p>
 
 <% @location.comments.each do |comment| %>
@@ -24,7 +24,7 @@
 <div class='comment_form'><%= render "comments/form", { commenteable_id: @location.id, commenteable_type: @location.class, comment: Comment.new } %></div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', travel_path(@location.travel) %>
+<%= link_to 'Back', trip_path(@location.trip) %>
 
 <script>
   $('.location_form, .comment_form').hide();

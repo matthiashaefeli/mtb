@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
-    @travel = @location.travel
+    @trip = @location.trip
   end
 
   # POST /locations or /locations.json
@@ -27,10 +27,10 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location.travel, notice: 'Location was successfully created.' }
+        format.html { redirect_to @location.trip, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
-        format.html { redirect_to @location.travel, alert: @location.errors.full_messages.join{','} }
+        format.html { redirect_to @location.trip, alert: @location.errors.full_messages.join{','} }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
@@ -66,6 +66,6 @@ class LocationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_params
-      params.require(:location).permit(:name, :address, :travel_id)
+      params.require(:location).permit(:name, :address, :trip_id)
     end
 end
