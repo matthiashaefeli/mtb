@@ -1,10 +1,10 @@
-<%= form_with(model: travel) do |form| %>
-  <% if travel.errors.any? %>
+<%= form_with(model: trip) do |form| %>
+  <% if trip.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
       <ul>
-        <% travel.errors.each do |error| %>
+        <% trip.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -27,6 +27,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit value='Create Journey' %>
+    <%= form.submit value='Create Trip' %>
   </div>
 <% end %>
