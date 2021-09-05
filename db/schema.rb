@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2021_08_01_162838) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.string "city"
+    t.string "country"
     t.string "address"
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
