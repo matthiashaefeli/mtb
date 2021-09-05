@@ -4,6 +4,7 @@ class TripsController < ApplicationController
 
   # GET /trips or /trips.json
   def index
+    @location_coordinates = Location.location_coordinates(current_user.id)
     @trips = Trip.where(user_id: current_user)
     @key = Rails.application.credentials.dig(:google_api, :key)
   end
